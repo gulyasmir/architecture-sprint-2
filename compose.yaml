@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mongodb1:
-    container_name: mongo-sharding
+    container_name: mongo-sharding-repl
     image: dh-mirror.gitverse.ru/mongo:latest
     volumes:
       - mongodb1_data_container:/data/db
