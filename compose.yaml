@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mongodb1:
-    container_name: mongo-sharding-repl
+    container_name: sharding-repl-cache
     image: dh-mirror.gitverse.ru/mongo:latest
     volumes:
       - mongodb1_data_container:/data/db
@@ -264,6 +264,21 @@ services:
       interval: 5s
       start_period: 10s
 
+
+
+  redis:
+    image: "redis:latest"
+    container_name: redis
+    ports:
+      - "6379"
+    volumes:
+      - redis_data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+    networks:
+      app-network:
+        ipv4_address: 173.17.0.2
+
 networks:
   app-network:
     driver: bridge
@@ -283,4 +298,5 @@ volumes:
   shard21-data:
   shard22-data:
   shard23-data:
+  redis_data:
    
