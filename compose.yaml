@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   mongodb1:
@@ -61,7 +61,7 @@ services:
       [
         "--shardsvr",
         "--replSet", 
-        "rs0",
+        "shard1",
         "--bind_ip_all",
         "--port", 
         "27018"
@@ -165,7 +165,7 @@ services:
       [
         "--shardsvr",
         "--replSet", 
-        "rs0",
+        "shard2",
         "--bind_ip_all",
         "--port", 
         "27019"
@@ -274,13 +274,7 @@ services:
     depends_on:
       - configSrv
       - shard1
-      - shard11
-      - shard12
-      - shard13
       - shard2
-      - shard21
-      - shard22
-      - shard23
       
     healthcheck:
       test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]

@@ -23,7 +23,7 @@
 Перед запуском желательно удалить все запущенные контейнеры
 
 ```shell
-docker-compose down
+docker-compose down -v
 ```
 
 Запускаем mongodb и приложение
