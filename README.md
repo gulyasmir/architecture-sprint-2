@@ -2,7 +2,7 @@
 
 ## Задание 1. Планирование
 
-Схемы приложения находятся тут: https://drive.google.com/file/d/1G8XDKuPBGRL1FXMgBxP1zA86DqaDoB4J/view?usp=sharing
+Схемы приложения находятся тут: https://drive.google.com/file/d/1NSvfyfsKBzPVwZJsUp6PBZhIqcwZAG_k/view?usp=sharing
 
 На первой схеме показана исходная структура приложения
 
