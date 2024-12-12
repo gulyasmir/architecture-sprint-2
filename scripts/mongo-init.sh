@@ -14,7 +14,7 @@ sudo docker compose exec -T configSrv mongosh --port 27017  --quiet <<EOF
 rs.initiate(
   {
     _id : "config_server",
-       configsvr: true,
+    configsvr: true,
     members: [
       { _id :  0, host : "configSrv:27017" }
     ]
@@ -36,6 +36,7 @@ rs.initiate(
       ]
     }
 );
+rs.status() 
 exit();
 EOF
 
@@ -53,6 +54,7 @@ rs.initiate(
       ]
     }
   );
+rs.status() 
 exit();
 EOF
 
