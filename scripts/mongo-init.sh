@@ -10,7 +10,7 @@
    
 
 
-sudo docker compose exec -T configSrv mongosh --port 27017  --quiet <<EOF
+docker compose exec -T configSrv mongosh --port 27017  --quiet <<EOF
 rs.initiate(
   {
     _id : "config_server",
@@ -25,7 +25,7 @@ EOF
 
 sleep 5
 
-sudo docker compose exec -T  shard1 mongosh --port 27018 --quiet <<EOF
+docker compose exec -T  shard1 mongosh --port 27018 --quiet <<EOF
 
 rs.initiate(
     {
@@ -44,7 +44,7 @@ EOF
 
 sleep 5
 
-sudo docker compose exec -T   shard2 mongosh --port 27019 --quiet <<EOF
+docker compose exec -T   shard2 mongosh --port 27019 --quiet <<EOF
 rs.initiate(
     {
       _id : "shard2",
@@ -63,7 +63,7 @@ EOF
 
 sleep 5
 
-sudo docker compose exec -T  mongos_router mongosh --port 27020 --quiet <<EOF
+docker compose exec -T  mongos_router mongosh --port 27020 --quiet <<EOF
 sh.addShard( "shard1/shard1:27018");
 sh.addShard( "shard2/shard2:27019");
 sh.enableSharding("somedb");
@@ -76,7 +76,7 @@ EOF
 
 sleep 15
 
-sudo docker compose exec -T  shard1 mongosh --port 27018 --quiet <<EOF
+docker compose exec -T  shard1 mongosh --port 27018 --quiet <<EOF
 use somedb;
 db.helloDoc.countDocuments();
 exit();
@@ -84,7 +84,7 @@ EOF
 
 sleep 5
 
-sudo docker compose exec -T  shard2 mongosh --port 27019 --quiet <<EOF
+docker compose exec -T  shard2 mongosh --port 27019 --quiet <<EOF
 use somedb;
 db.helloDoc.countDocuments();
 exit();
