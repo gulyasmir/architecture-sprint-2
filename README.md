@@ -24,14 +24,16 @@
 
 ```shell
 docker-compose down -v
+
+sudo docker-compose down -v
 ```
 
 Запускаем mongodb и приложение
 
 ```shell
-docker compose up -d
+sudo docker compose up -d
 ```
-
+Когде все контейнеры будут запущены
 Заполняем mongodb данными
 
 ```shell
